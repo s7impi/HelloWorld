@@ -9,8 +9,8 @@ import org.junit.Assert;
 /** 
 * main.Concatenator Tester.
 * 
-* @author <Authors name> 
-* @since <pre>Mar 21, 2015</pre> 
+* @author Witold Oleszkiewicz
+* @since Mar 21, 2015
 * @version 1.0 
 */ 
 public class ConcatenatorTest { 
