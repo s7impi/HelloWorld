@@ -8,4 +8,5 @@ public class Concatenator {
     public String concatenate(String one, String two){
         return one + two;
     }
+    public String concatenateWithPlus(String one, String two) { return one+"+"+two; }
 }
