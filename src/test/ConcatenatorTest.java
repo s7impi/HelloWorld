@@ -10,7 +10,7 @@ import org.junit.Assert;
 * main.Concatenator Tester.
 * 
 * @author Witold Oleszkiewicz
-* @since Mar 21, 2015
+* @sinceMar 21, 2015
 * @version 1.0 
 */ 
 public class ConcatenatorTest { 
