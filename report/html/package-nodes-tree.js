@@ -23,7 +23,7 @@ var Packages = {
     "text": "test",
     "package": "test",
     "url": "test/testsrc-pkg-summary.html",
-            "coverage": "100%",
+            "coverage": "0%",
         "icon": "aui-icon aui-icon-small aui-iconfont-devtools-folder-closed",
             "li_attr": {"data-is-link": "true"},
         "a_attr": {"href": "test/testsrc-pkg-summary.html"},
