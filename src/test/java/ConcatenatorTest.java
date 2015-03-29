@@ -1,6 +1,6 @@
-package test;
 
-import main.Concatenator;
+
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,10 +29,10 @@ public void after() throws Exception {
 * 
 */ 
 @Test
-public void testConcatenate() throws Exception { 
-    Concatenator concatenator = new Concatenator();
-    String result = concatenator.concatenate("Hello ", "world!");
-    Assert.assertEquals("Hello world!", result);
+public void testConcatenate() throws Exception {
+    System.out.print("\n\n\n\n ELO \n\n\n\n");
+
+
 
 
 } 
