@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="test" />
+        <module name="pik_project" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="test" target="1.7" />
+      <module name="pik_project" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
