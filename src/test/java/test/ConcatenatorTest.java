@@ -31,7 +31,7 @@ public void after() throws Exception {
 @Test
 public void testConcatenate() throws Exception { 
     Concatenator concatenator = new Concatenator();
-    String result = concatenator.concatenate("Hello ", "world!");
+    String result = concatenator.concatenate("Hello ", "world2!");
     Assert.assertEquals("Hello world!", result);
 
 
