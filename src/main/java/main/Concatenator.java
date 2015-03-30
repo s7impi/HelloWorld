@@ -11,6 +11,6 @@ public class Concatenator {
         return one+"+"+two;
     }
     public int getNumber(){
-        return 12345678;
+        return 123456789;
     }
 }
