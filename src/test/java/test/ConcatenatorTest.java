@@ -2,9 +2,9 @@ package test;
 
 import main.Concatenator;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.Assert;
 
 /** 
 * main.Concatenator Tester.

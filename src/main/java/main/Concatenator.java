@@ -1,5 +1,4 @@
 package main;
-
 /**
  * Created by vitalik on 3/21/15.
  */
