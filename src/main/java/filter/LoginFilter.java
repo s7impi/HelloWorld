@@ -23,10 +23,12 @@ public class LoginFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession(false);
 
+        String uri = request.getRequestURI();
+        String path = request.getContextPath();
         if (request.getRequestURI().startsWith("/pik/login")) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else if (session == null || session.getAttribute("user") == null) {
-            response.sendRedirect(request.getContextPath() + "/login");
+            response.sendRedirect("/pik/login");
         } else {
             filterChain.doFilter(servletRequest, servletResponse);
         }

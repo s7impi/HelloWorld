@@ -54,9 +54,10 @@ public class LoginServlet extends HttpServlet {
                     (password != null) && (password.length() > 0)) {
                 User user = userDao.find(name, password);
                 if (user != null) {
-                    out.println("lol");
                     request.getSession().setAttribute("user", user);
                     response.sendRedirect("/pik/hello");
+                } else {
+                    response.sendRedirect("/pik/login");
                 }
             } else {
                 out.println("<p>Enter user name:</p>");
