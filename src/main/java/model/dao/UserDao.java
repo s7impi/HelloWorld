@@ -11,9 +11,16 @@ import javax.ejb.Stateless;
 public class UserDao {
     public User find(String name, String password) {
         User user = null;
-        if (name.equals("asd") && password.equals("qwe")) {
+        UserDaoDB udao = new UserDaoDBImpl();
+        UserDB udb = udao.findByUserName(name);
+        if (udb == null)
+            return null;
+
+        if (name.equals(udb.getName()) && password.equals(udb.getPassword())) {
             user = new User(name);
         }
         return user;
     }
+
+
 }
