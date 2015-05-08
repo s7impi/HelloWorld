@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author asmolik
  */
-@Entity
+//@Entity
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

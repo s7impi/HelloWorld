@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @author asmolik
  */
-@Entity
+//@Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

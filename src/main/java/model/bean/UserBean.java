@@ -27,6 +27,6 @@ public class UserBean implements Serializable {
     }
     @RolesAllowed("Customer")
     public String getName() {
-        return user.getName();
+        return user.getUsername();
     }
 }

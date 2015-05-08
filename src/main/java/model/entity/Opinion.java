@@ -5,7 +5,7 @@ import javax.persistence.*;
 /**
  * @author asmolik
  */
-@Entity
+//@Entity
 public class Opinion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
