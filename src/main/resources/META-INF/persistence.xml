@@ -2,6 +2,8 @@
 <persistence version="2.1">
     <persistence-unit name="persistenceUnit" transaction-type="JTA">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!-- production:-->
+        <!--<jta-data-source>jdbc/mysql</jta-data-source>-->
 
         <class>model.entity.User</class>
         <class>model.entity.Group</class>
