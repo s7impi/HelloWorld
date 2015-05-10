@@ -2,13 +2,9 @@ package model.bean;
 
 import model.entity.User;
 
-import javax.annotation.Resource;
-import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.RolesAllowed;
-import javax.ejb.SessionContext;
 import javax.ejb.Stateful;
 import javax.ejb.StatefulTimeout;
-import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
 
@@ -27,6 +23,6 @@ public class UserBean implements Serializable {
     }
     @RolesAllowed("Customer")
     public String getName() {
-        return user.getUsername();
+        return user.getEmail();
     }
 }

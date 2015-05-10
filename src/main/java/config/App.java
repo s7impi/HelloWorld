@@ -8,7 +8,7 @@ import javax.ws.rs.ApplicationPath;
 /**
  * @author asmolik
  */
-@ApplicationPath("/")
+@ApplicationPath("/api")
 public class App extends ResourceConfig {
     public App() {
         packages("services");

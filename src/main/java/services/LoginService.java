@@ -1,5 +1,7 @@
 package services;
 
+import model.entity.User;
+
 import javax.annotation.security.PermitAll;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,10 +18,11 @@ public class LoginService {
     HttpServletRequest request;
 
     @POST
+    @Consumes({"application/json", "text/plain"})
     @Produces("text/plain")
-    public String login(@FormParam("mail") String mail, @FormParam("password") String password) {
+    public String login(User user) {
         try {
-            request.login(mail, password);
+            request.login(user.getEmail(), user.getPassword());
         } catch (ServletException e) {
             e.printStackTrace();
             return "error";

@@ -2,25 +2,26 @@ package model.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author asmolik
  */
 @Entity(name = "users")
+@XmlRootElement
 public class User {
     @Id
     @NotNull
     @Column(name = "user_name")
-    String username;
+    String email;
     @Column(name = "user_password")
     String password;
 //    Cart cart;
 //    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "")
 //    List<Order> orders;
 
-    public User(String username, String password) {
-        this.username = username;
+    public User(String email, String password) {
+        this.email = email;
         this.password = password;
     }
 
@@ -31,12 +32,12 @@ public class User {
 
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String username) {
+        this.email = username;
     }
 
     public String getPassword() {
