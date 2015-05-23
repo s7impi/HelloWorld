@@ -1,0 +1,13 @@
+{
+	"designer" : "Matthew Dunstan",
+	"publisher" : "Space Cowboys",
+	"year_published" : "2015",
+	"number_of_players" : "2-4",
+	"description": "Mythic Greece. As an upstart demigod, you want to earn the favor of the Olympians and become a figure of legend yourself. Gather heroes and powerful artifacts, please the gods and bear their power to write your own epic tale. Let your allies achieve their destiny and enter the Elysium, home of the glorious and the brave. Once the stories are written, only one demigod will be chosen to stand at the side of Zeus. Elysium is a game of set collecting and combinations in which players recruit cards representing heroes, items, powers and gods. These cards have many different powers and you can create powerful combination to earn gold (the help of the gods) and victory points (the favor of the gods). Each card belongs to one of the eight Olympians gods (a family), and shows a level (1 to 3). During the five turns of the game, players will try to transfer their cards to the Elysium and write their own Legends, which are series of cards from the same family or from different families of the same level. The more epic the Legends, the more favor from the gods they’ll earn. But as they go to Elysium, most cards lose their power and players will therefore have to renounce some of their combinations ! A game of balance and opportunity with simple action, but constant dilemmas and complex strategies.", 
+	"id": "elysium", 
+	"name": "Elysium",
+	"playing_time" : "60 minutes",
+	"category" : "Mythology",
+	"subdomain" : "Strategy game",
+	"suggested_age" : "12 and up"
+}

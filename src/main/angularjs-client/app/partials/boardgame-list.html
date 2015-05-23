@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  Search: <input ng-model="query">
+  <div class="row">
+    <ul class="boardgames">
+      <li ng-repeat="game in boardgames | filter:query"
+          class="thumbnail boardgames-list">
+        <a href="#/boardgames/{{game.id}}">{{game.name}}</a>
+        <p>{{game.snippet}}</p>
+        </li>
+      </ul>
+  </div>
+</div>
