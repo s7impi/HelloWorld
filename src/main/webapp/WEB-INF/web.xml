@@ -28,10 +28,7 @@
             <web-resource-name>REST</web-resource-name>
             <url-pattern>/api/*</url-pattern>
         </web-resource-collection>
-        <auth-constraint>
-            <role-name>Customer</role-name>
-            <role-name>admin</role-name>
-        </auth-constraint>
+
     </security-constraint>
 
     <security-role>

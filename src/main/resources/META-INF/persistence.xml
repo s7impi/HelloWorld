@@ -3,7 +3,7 @@
     <persistence-unit name="persistenceUnit" transaction-type="JTA">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- production:-->
-        <!--<jta-data-source>jdbc/mysql</jta-data-source>-->
+        <jta-data-source>jdbc/MySQLDataSource</jta-data-source>
 
         <class>model.entity.User</class>
         <class>model.entity.Group</class>
@@ -15,9 +15,16 @@
                       value="metadata"/>
             <property name="javax.persistence.sql-load-script-source"
                       value="META-INF/data.sql"/>
-            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.show_sql"
+                      value="true" />
             <property name="hibernate.transaction.jta.platform"
                       value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform" />
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.HSQLDialect"/>
+            <property name="hibernate.max_fetch_depth"
+                      value="3"/>
+            <property name="hibernate.connection.datasource"
+                      value="jdbc/MySQLDataSource"/>
         </properties>
 
 
