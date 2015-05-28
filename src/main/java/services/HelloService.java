@@ -21,8 +21,6 @@ public class HelloService {
     @Produces("text/plain")
     public String hello(@Context SecurityContext sc) {
         UserDao dao = new UserDao();
-        dao.test();
-
-        return "done";
+        return dao.test();
     }
 }

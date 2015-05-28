@@ -15,5 +15,8 @@
         <property name="show_sql">true</property>
         <property name="connection.pool_size">1</property>
         <mapping class ="model.entity.User" />
+        <mapping class ="model.entity.Game" />
+        <mapping class ="model.entity.Group" />
+
     </session-factory>
 </hibernate-configuration>
