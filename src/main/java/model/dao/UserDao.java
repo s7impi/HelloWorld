@@ -1,54 +1,51 @@
 package model.dao;
 
 import model.entity.User;
-import org.hibernate.Session;
 
 import javax.ejb.Stateless;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
+import javax.transaction.*;
+
 
 /**
- * @author asmolik
+ * @author marzuz
  */
 @Stateless
 public class UserDao {
 
-    //@PersistenceContext(unitName = "persistenceUnit")
-    private EntityManagerFactory emf;
+    private EntityManager entityManager;
+    private UserTransaction userTransaction;
+
+    {
+        InitialContext ctx;
+        try {
+            ctx = new InitialContext();
+            userTransaction = (UserTransaction)ctx.lookup("java:comp/UserTransaction");
+        } catch (NamingException e) {
+            e.printStackTrace();
+        }
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceUnit");
+        entityManager = emf.createEntityManager();
+    }
 
     public User find(String name) {
-        // return em.find(User.class, name);
-        return null;
+        return entityManager.find(User.class, name);
     }
 
-    public void save(User user) {
-        //em.persist(user);
-    }
-
-    /**
-     * Funkcja przeznaczona do testowania dzialania EntityMenagera i generalnie
-     * hibernate'a. Mozna pisac tu glupoty.
-     */
-    public String test() {
-        User us = new User();
-        us.setEmail("ccc");
-        us.setPassword("bbb");
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceUnit");
-        EntityManager em = emf.createEntityManager(); // Retrieve an application managed entity manager
-        System.out.println("emf: " + emf.toString());
-        System.out.println("em: " + em.toString());
-        if (em.isOpen()) {
-            User uss = em.find(User.class, "Olek");
-            em.close();
-            return uss.getPassword();
-        } else {
-            return "Closed";
+    public void save(User user) throws SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+        userTransaction.begin();
+        if(entityManager.isOpen())
+        {
+            entityManager.joinTransaction();
+            entityManager.persist(user);
+            entityManager.flush();
+            userTransaction.commit();
         }
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        session.beginTransaction();
-//        session.save(us);
-//        session.getTransaction().commit();
     }
+
+
 }

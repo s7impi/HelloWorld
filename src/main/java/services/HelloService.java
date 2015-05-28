@@ -21,6 +21,6 @@ public class HelloService {
     @Produces("text/plain")
     public String hello(@Context SecurityContext sc) {
         UserDao dao = new UserDao();
-        return dao.test();
+        return dao.find("cca").getPassword();
     }
 }
