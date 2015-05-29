@@ -6,7 +6,7 @@ var boardgameApp = angular.module('boardgameApp', [
   'ngRoute',
   'boardgameAnimations',
   'boardgameControllers',
-  'boardgameServices'
+  'boardgameServices',
 ]);
 
 boardgameApp.config(['$routeProvider',
@@ -24,3 +24,4 @@ boardgameApp.config(['$routeProvider',
         redirectTo: '/boardgames'
       });
   }]);
+
