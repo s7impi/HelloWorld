@@ -5,6 +5,7 @@ import javassist.bytecode.ByteArray;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
  * @author asmolik
@@ -13,13 +14,21 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity(name = "users")
 @XmlRootElement
-public class User {
+public class User implements Serializable{
+
+    /**
+     * email uzytkownika. Musi zostac podany
+     */
     @Id
     @NotNull
     @Column(name = "email")
-    String email;
+    private String email;
+
+    /**
+     * chas³o u¿ytkownika
+     */
     @Column(name = "password")
-    String password;
+    private String password;
 //    Cart cart;
 //    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "")
 //    List<Order> orders;
@@ -30,10 +39,6 @@ public class User {
     }
 
     public User() {
-    }
-
-    public void createOrder() {
-
     }
 
     public String getEmail() {

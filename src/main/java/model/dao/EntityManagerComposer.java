@@ -8,6 +8,8 @@ import javax.persistence.Persistence;
 import javax.transaction.UserTransaction;
 
 /**
+ * Klasa odpowiedzialna za implementacje oraz skonfigurowanie
+ * EntityManagera, oraz przygotowanie do jego dzialania.
  * Created by Marz on 2015-05-29.
  */
 public abstract class EntityManagerComposer {
@@ -28,4 +30,3 @@ public abstract class EntityManagerComposer {
     }
 }
 
-class TransactionNotOpenException extends Exception{}

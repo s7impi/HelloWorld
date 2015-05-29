@@ -1,56 +1,111 @@
 package model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
+ * klasa reprezentuj¹ca encjê games
  * Created by s7impi on 23.05.15.
  */
-
-@NamedQuery(name="model.entity.Game.getAllGames",
-            query="SELECT g FROM Game g ")
-@Entity
+@Entity(name = "games")
 public class Game implements Serializable {
     private static final long serialVersionUID = 913072745186891885L;
     @Id
-    private String id;
+    @Column(name = "idgames")
+    private int id;
+    @Column(name ="name",nullable = false)
     private String name;
+    @Column(name = "snippet")
     private String snippet;
+    @Column(name = "designer")
     private String designer;
-    private String publisher;
-    private String year_published;
+    @Column(name = "year_published")
+    private Date year_published;
+    @Column(name = "number_of_players")
     private String number_of_players;
-    private String description;
+    @Column(name = "short_description", nullable = false)
+    private String short_description;
+    @Column(name = "long_description")
+    private String long_description;
+    @Column(name = "playing_time")
     private String playing_time;
+    @Column(name = "categories_name", nullable = false)
     private String category;
+    @Column(name = "subdomain")
     private String subdomain;
+    @Column(name = "suggested_age")
     private String suggested_age;
+    @Column(name = "price", precision = 2, nullable = false)
+    private float price;
+    @Column(name = "promotion_price", precision = 2)
+    private float promotion_price;
+    @Column(name = "promotion_deadline")
+    private Date promotion_deadline;
+
+    public Game(String name, String category, String short_description) {
+        this.name = name;
+        this.category = category;
+        this.short_description = short_description;
+    }
+
+    public Date getYear_published() {
+        return year_published;
+    }
+
+    public void setYear_published(Date year_published) {
+        this.year_published = year_published;
+    }
+
+    public String getShort_description() {
+        return short_description;
+    }
+
+    public void setShort_description(String short_description) {
+        this.short_description = short_description;
+    }
+
+    public String getLong_description() {
+        return long_description;
+    }
+
+    public void setLong_description(String long_description) {
+        this.long_description = long_description;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public float getPromotion_price() {
+        return promotion_price;
+    }
+
+    public void setPromotion_price(float promotion_price) {
+        this.promotion_price = promotion_price;
+    }
+
+    public Date getPromotion_deadline() {
+        return promotion_deadline;
+    }
+
+    public void setPromotion_deadline(Date promotion_deadline) {
+        this.promotion_deadline = promotion_deadline;
+    }
 
     public Game() {
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        Game game = (Game) o;
-
-        return !(id != null ? !id.equals(game.id) : game.id != null);
-    }
-
-    @Override
-    public int hashCode() {
-        return id != null ? id.hashCode() : 0;
-    }
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -78,21 +133,7 @@ public class Game implements Serializable {
         this.designer = designer;
     }
 
-    public String getPublisher() {
-        return publisher;
-    }
 
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
-
-    public String getYear_published() {
-        return year_published;
-    }
-
-    public void setYear_published(String year_published) {
-        this.year_published = year_published;
-    }
 
     public String getNumber_of_players() {
         return number_of_players;
@@ -102,13 +143,6 @@ public class Game implements Serializable {
         this.number_of_players = number_of_players;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public String getCategory() {
         return category;
