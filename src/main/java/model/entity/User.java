@@ -6,6 +6,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author asmolik
+ * Klasa reprezentuj¹ca encje User. Ma ona przechowywaæ dane
+ * o koncie uzytkownika.
  */
 @Entity(name = "users")
 @XmlRootElement
