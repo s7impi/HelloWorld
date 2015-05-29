@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `pikdb`.`games` (
   `short_description` VARCHAR(255) NOT NULL,
   `long_description` VARCHAR(2048) NULL,
   `price` DECIMAL(2) NOT NULL,
-  `promotion_price` DECIMAL(2) NULL,
+  `promotion_price` DECIMAL(2) NOT NULL,
   `promotion_deadline` DATETIME NULL,
   `name` VARCHAR(45) NOT NULL,
   `categories_name` VARCHAR(45) NOT NULL,

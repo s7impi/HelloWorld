@@ -38,7 +38,7 @@ public class Game implements Serializable {
     private String suggested_age;
     @Column(name = "price", precision = 2, nullable = false)
     private float price;
-    @Column(name = "promotion_price", precision = 2)
+    @Column(name = "promotion_price", precision = 2, nullable = false)
     private float promotion_price;
     @Column(name = "promotion_deadline")
     private Date promotion_deadline;
