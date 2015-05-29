@@ -20,7 +20,7 @@ USE `pikdb` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pikdb`.`categories` (
   `name` VARCHAR(45) NOT NULL,
-  `description` VARCHAR(45) NULL,
+  `description` VARCHAR(2048) NULL,
   PRIMARY KEY (`name`))
 ENGINE = InnoDB;
 
@@ -38,13 +38,19 @@ CREATE TABLE IF NOT EXISTS `pikdb`.`games` (
   `status` VARCHAR(45) NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `categories_name` VARCHAR(45) NOT NULL,
+  `snippet` VARCHAR(45) NULL,
+  `designer` VARCHAR(45) NULL,
+  `number_of_players` VARCHAR(45) NULL,
+  `playing_time` VARCHAR(45) NULL,
+  `subdomain` VARCHAR(45) NULL,
+  `suggested_age` VARCHAR(45) NULL,
   PRIMARY KEY (`idgames`),
   CONSTRAINT `fk_games_categories1`
-    FOREIGN KEY (`categories_name`)
-    REFERENCES `pikdb`.`categories` (`name`)
+  FOREIGN KEY (`categories_name`)
+  REFERENCES `pikdb`.`categories` (`name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  ENGINE = InnoDB;
 
 CREATE INDEX `fk_games_categories1_idx` ON `pikdb`.`games` (`categories_name` ASC);
 
@@ -55,7 +61,6 @@ CREATE INDEX `fk_games_categories1_idx` ON `pikdb`.`games` (`categories_name` AS
 CREATE TABLE IF NOT EXISTS `pikdb`.`users` (
   `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `user_image` BLOB(6192) NULL,
   PRIMARY KEY (`email`))
 ENGINE = InnoDB;
 
@@ -236,3 +241,12 @@ CREATE INDEX `fk_transactions_has_games_transactions1_idx` ON `pikdb`.`transacti
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- Insert User example:
+insert into users VALUES ('Olek', '3fb14d016ebe86');
+insert into users VALUES ('admin', 'admin');
+insert into users VALUES ('ccc', 'bbb');
+
+-- categories
+insert into categories VALUE  ('RPG', 'Bardzo krotki opis');
+insert into categories VALUE  ('ekonomiczne', 'gra w ktorej liczy sie pieniadze');

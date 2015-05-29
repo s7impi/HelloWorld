@@ -1,5 +1,7 @@
 package model.entity;
 
+import javassist.bytecode.ByteArray;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,9 +16,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class User {
     @Id
     @NotNull
-    @Column(name = "user_name")
+    @Column(name = "email")
     String email;
-    @Column(name = "user_password")
+    @Column(name = "password")
     String password;
 //    Cart cart;
 //    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "")
