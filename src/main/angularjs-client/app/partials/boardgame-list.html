@@ -1,11 +1,24 @@
 <div class="container-fluid">
-  Search: <input ng-model="query">
   <div class="row">
     <ul class="boardgames">
       <li ng-repeat="game in boardgames | filter:query"
           class="thumbnail boardgames-list">
         <a href="#/boardgames/{{game.id}}">{{game.name}}</a>
         <p>{{game.snippet}}</p>
+        <div class="btn-group">
+          <button type="button" class="btn btn-danger">Add to cart</button>
+          <button type="button" class="btn btn-success">Comment</button>
+          <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-star"></span>Rate<span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">5</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">1</a></li>
+            </ul>
+          </div>
+        </div>
         </li>
       </ul>
   </div>
