@@ -14,3 +14,12 @@ boardgameControllers.controller('BoardgameDetailCtrl', ['$scope', '$routeParams'
     $scope.boardgame = Boardgame.get({boardgameId: $routeParams.boardgameId}, function(boardgame) {
     });
   }]);
+
+boardgameControllers.controller('SendCommentCtrl', ['$scope', 
+  function($scope) {
+    $scope.sendComment = function(comment, id){
+      alert("Add comment: "+comment+" for game "+id);
+    };//TODO service
+  }]);
+
+
