@@ -3,6 +3,7 @@ package model.dao;
 import model.entity.Game;
 
 import javax.transaction.*;
+import java.util.List;
 
 /**
  * klasa odpowiedzialna za dostep do encji games
@@ -20,6 +21,26 @@ public class GameDAO extends EntityManagerComposer {
         return entityManager.find(Game.class, name);
     }
 
+
+    /**
+     * znajduje wszystkie wiersze encji games
+     * @return lista encji games
+     */
+    public List<Game> findAllGames(){
+        return entityManager.createQuery("SELECT e from games e").getResultList();
+    }
+
+
+    /**
+     * pozwala wstawic wiersz do encji games
+     * @param game -- obiekt klasy Game reprezentujacy wiersz encji games
+     * @throws SystemException
+     * @throws NotSupportedException
+     * @throws HeuristicRollbackException
+     * @throws HeuristicMixedException
+     * @throws RollbackException
+     * @throws TransactionNotOpenException
+     */
     public void insertGame(Game game) throws SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException, TransactionNotOpenException {
         userTransaction.begin();
         if(entityManager.isOpen()){
