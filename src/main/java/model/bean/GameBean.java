@@ -32,7 +32,7 @@ public class GameBean {
     public List<Game> getAllGames() {
         logger.info("Calling getAllGames");
         this.allGames = (List<Game>)
-                em.createNamedQuery("model.entity.Game.getAllGames").getResultList();
+                em.createQuery("SELECT e from games e").getResultList();
         if (this.allGames == null) {
             logger.warning("No games available!");
         }

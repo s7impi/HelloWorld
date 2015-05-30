@@ -27,6 +27,21 @@ public class Category implements Serializable {
     @Column(name = "description", nullable = true)
     private String description;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Category object = (Category) o;
+
+        return !(name != null ? !name.equals(object.name) : object.name != null);
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
+    }
+
     public String getName() {
         return name;
     }

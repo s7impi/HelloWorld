@@ -49,6 +49,22 @@ public class Game implements Serializable {
         this.short_description = short_description;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Game game = (Game) o;
+
+        return id != game.id;
+    }
+
+    @Override
+    public int hashCode() {
+        // TODOa
+        return id;
+    }
+
     public Date getYear_published() {
         return year_published;
     }

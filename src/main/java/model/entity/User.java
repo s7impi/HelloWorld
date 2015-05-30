@@ -41,6 +41,21 @@ public class User implements Serializable{
     public User() {
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User object = (User) o;
+
+        return !(email != null ? !email.equals(object.email) : object.email != null);
+    }
+
+    @Override
+    public int hashCode() {
+        return email != null ? email.hashCode() : 0;
+    }
+
     public String getEmail() {
         return email;
     }
