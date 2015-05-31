@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `pikdb`.`games` (
   `long_description` VARCHAR(2048) NULL,
   `price` DECIMAL(2) NOT NULL,
   `promotion_price` DECIMAL(2) NOT NULL,
-  `promotion_deadline` DATETIME NULL,
+  `promotion_deadline` DATE NULL,
   `name` VARCHAR(45) NOT NULL,
   `categories_name` VARCHAR(45) NOT NULL,
   `snippet` VARCHAR(45) NULL,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `pikdb`.`games` (
   `playing_time` VARCHAR(45) NULL,
   `subdomain` VARCHAR(45) NULL,
   `suggested_age` VARCHAR(45) NULL,
-  `year_published` DATETIME NULL,
+  `year_published`     DATE NULL,
   PRIMARY KEY (`idgames`),
   CONSTRAINT `fk_games_categories1`
   FOREIGN KEY (`categories_name`)
@@ -70,7 +70,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pikdb`.`orders` (
   `idorders` INT NOT NULL,
-  `date` DATETIME NOT NULL,
+  `date` DATE NOT NULL,
   `price` DECIMAL(2) NOT NULL,
   `status` VARCHAR(45) NOT NULL,
   `users_email` VARCHAR(45) NOT NULL,
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `pikdb`.`transactions` (
   `idtransactions` INT NOT NULL,
   `status` VARCHAR(45) NOT NULL,
   `price` DECIMAL(2) NOT NULL,
-  `date` DATETIME NOT NULL,
+  `date` DATE NOT NULL,
   PRIMARY KEY (`idtransactions`))
 ENGINE = InnoDB;
 

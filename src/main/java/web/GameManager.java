@@ -1,6 +1,6 @@
 package web;
 
-import model.entity.Game;
+import model.entity.Games;
 
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.SessionScoped;
@@ -41,13 +41,14 @@ public class GameManager implements Serializable {
         client.close();
     }
 
-    public List<Game> getGames() {
-        List<Game> returnedGames = null;
+    public List<Games> getGames() {
+        List<Games> returnedGames = null;
         try {
             returnedGames = client.target(baseUri)
                     .path("/games")
                     .request(MediaType.APPLICATION_JSON)
-                    .get(new GenericType<List<Game>>() {});
+                    .get(new GenericType<List<Games>>() {
+                    });
             if (returnedGames == null) {
                 logger.log(Level.SEVERE, "Returned games are null.");
             }

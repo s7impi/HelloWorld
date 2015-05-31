@@ -1,6 +1,6 @@
 package model.dao;
 
-import model.entity.Game;
+import model.entity.Games;
 
 import javax.transaction.*;
 import java.util.List;
@@ -14,11 +14,11 @@ public class GameDAO extends EntityManagerComposer {
 
     /**
      * funkcja szukaj¹ca gry po jej nazwie, ktora jest kluczem glownym
-     * @param name - nazwa gry
+     * @param id - nazwa gry
      * @return klasa Game
      */
-    public Game findGame(String name){
-        return entityManager.find(Game.class, name);
+    public Games findGame(Integer id) {
+        return entityManager.find(Games.class, id);
     }
 
 
@@ -26,8 +26,8 @@ public class GameDAO extends EntityManagerComposer {
      * znajduje wszystkie wiersze encji games
      * @return lista encji games
      */
-    public List<Game> findAllGames(){
-        return entityManager.createQuery("SELECT e from games e").getResultList();
+    public List<Games> findAllGames() {
+        return entityManager.createQuery("SELECT e from Games e", Games.class).getResultList();
     }
 
 
@@ -41,7 +41,7 @@ public class GameDAO extends EntityManagerComposer {
      * @throws RollbackException
      * @throws TransactionNotOpenException
      */
-    public void insertGame(Game game) throws SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException, TransactionNotOpenException {
+    public void insertGame(Games game) throws SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException, TransactionNotOpenException {
         userTransaction.begin();
         if(entityManager.isOpen()){
             entityManager.joinTransaction();

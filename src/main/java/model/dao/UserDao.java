@@ -1,13 +1,8 @@
 package model.dao;
 
-import model.entity.User;
+import model.entity.Users;
 
 import javax.ejb.Stateless;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.transaction.*;
 
 
@@ -24,8 +19,8 @@ public class UserDao extends EntityManagerComposer{
      * @param name -email/nazwa
      * @return obiekt klasy User o podanym nicku
      */
-    public User findUser(String name) {
-        return entityManager.find(User.class, name);
+    public Users findUser(String name) {
+        return entityManager.find(Users.class, name);
     }
 
 
@@ -38,7 +33,7 @@ public class UserDao extends EntityManagerComposer{
      * @throws HeuristicMixedException
      * @throws RollbackException
      */
-    public void save(User user) throws SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+    public void save(Users user) throws SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
         userTransaction.begin();
         if(entityManager.isOpen()){
             entityManager.joinTransaction();

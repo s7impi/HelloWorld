@@ -1,6 +1,6 @@
 package model.dao;
 
-import model.entity.Category;
+import model.entity.Categories;
 
 import javax.ejb.Stateless;
 import javax.transaction.*;
@@ -19,8 +19,8 @@ public class CategoryDAO extends EntityManagerComposer{
      * @param categoryName - nazwa identyfikatora
      * @return encja o podanym identyfikatorze
      */
-    public Category getCategory(String categoryName){
-        return entityManager.find(Category.class, categoryName);
+    public Categories getCategory(String categoryName) {
+        return entityManager.find(Categories.class, categoryName);
     }
 
 
@@ -28,8 +28,8 @@ public class CategoryDAO extends EntityManagerComposer{
      * funkcja zwracajaca wszystkie encje Categories z bazy
      * @return lista encji Categories
      */
-    public List<Category> getAllCategories(){
-        return entityManager.createQuery("SELECT e from categories e").getResultList();
+    public List<Categories> getAllCategories() {
+        return entityManager.createQuery("SELECT e from Categories e", Categories.class).getResultList();
     }
 
 
@@ -43,7 +43,7 @@ public class CategoryDAO extends EntityManagerComposer{
      * @throws RollbackException
      * @throws TransactionNotOpenException
      */
-    public void insertNewCategory(Category newCategory) throws SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException, TransactionNotOpenException {
+    public void insertNewCategory(Categories newCategory) throws SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException, TransactionNotOpenException {
         userTransaction.begin();
         if(entityManager.isOpen()){
             entityManager.joinTransaction();

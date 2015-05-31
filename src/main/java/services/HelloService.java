@@ -1,14 +1,9 @@
 package services;
 
-import model.dao.CategoryDAO;
 import model.dao.GameDAO;
-import model.dao.UserDao;
-import model.entity.Category;
-import model.entity.Game;
-import model.entity.User;
+import model.entity.Games;
 
 import javax.annotation.security.PermitAll;
-import javax.persistence.EntityManager;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -28,11 +23,13 @@ public class HelloService {
     @Produces("text/plain")
     public String hello(@Context SecurityContext sc) {
         GameDAO dao = new GameDAO();
-        List<Game> list = dao.findAllGames();
-        for(Game c: list)
+        Games g = dao.findGame(1);
+
+        List<Games> list = dao.findAllGames();
+        for (Games c : list)
         {
             napis = napis + " " + c.getName();
         }
-        return napis;
+        return "done";//g.getCategory().getDescription();
     }
 }
