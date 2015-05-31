@@ -23,13 +23,13 @@ public class HelloService {
     @Produces("text/plain")
     public String hello(@Context SecurityContext sc) {
         GameDAO dao = new GameDAO();
-        Games g = dao.findGame(1);
+        //Games g = dao.findGame(12);
 
-        List<Games> list = dao.findAllGames();
+        List<Games> list = dao.findGameByName("cos");
         for (Games c : list)
         {
-            napis = napis + " " + c.getName();
+            napis = napis + " " + c.getShortDescription();
         }
-        return "done";//g.getCategory().getDescription();
+        return napis;//g.getCategory().getDescription();
     }
 }

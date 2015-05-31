@@ -62,7 +62,7 @@ public class Games {
     }
 
     @Basic
-    @Column(name = "price", nullable = false, insertable = true, updatable = true, precision = 0)
+    @Column(name = "price", nullable = false, insertable = true, updatable = true, scale = 2)
     public BigInteger getPrice() {
         return price;
     }
@@ -72,7 +72,7 @@ public class Games {
     }
 
     @Basic
-    @Column(name = "promotion_price", nullable = false, insertable = true, updatable = true, precision = 0)
+    @Column(name = "promotion_price", nullable = false, insertable = true, updatable = true, scale = 2)
     public BigInteger getPromotionPrice() {
         return promotionPrice;
     }

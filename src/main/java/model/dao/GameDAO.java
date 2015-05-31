@@ -22,6 +22,9 @@ public class GameDAO extends EntityManagerComposer {
     }
 
 
+    public List<Games> findGameByName(String name) {
+        return entityManager.createQuery("SELECT e from Games e where e.name = :searching_name", Games.class).setParameter("searching_name", name).getResultList();
+    }
     /**
      * znajduje wszystkie wiersze encji games
      * @return lista encji games
