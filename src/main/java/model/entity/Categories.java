@@ -39,8 +39,10 @@ public class Categories {
 
         Categories that = (Categories) o;
 
-        return !(name != null ? !name.equals(that.name) : that.name != null) && !(description != null ? !description.equals(that.description) : that.description != null);
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (description != null ? !description.equals(that.description) : that.description != null) return false;
 
+        return true;
     }
 
     @Override

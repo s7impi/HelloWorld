@@ -38,8 +38,10 @@ public class OrdersHasGamesPK implements Serializable {
 
         OrdersHasGamesPK that = (OrdersHasGamesPK) o;
 
-        return ordersIdorders == that.ordersIdorders && gamesIdgames == that.gamesIdgames;
+        if (ordersIdorders != that.ordersIdorders) return false;
+        if (gamesIdgames != that.gamesIdgames) return false;
 
+        return true;
     }
 
     @Override

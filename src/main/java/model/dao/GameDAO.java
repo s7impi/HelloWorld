@@ -55,4 +55,26 @@ public class GameDAO extends EntityManagerComposer {
         else
             throw new TransactionNotOpenException();
     }
+
+    /**
+     * pozwala odswiezyc dane gdyz nie zawsze moga byc aktualne w programie.
+     * @param game gra ktorej dane chcemy odswiezyc
+     * @throws SystemException
+     * @throws NotSupportedException
+     * @throws HeuristicRollbackException
+     * @throws HeuristicMixedException
+     * @throws RollbackException
+     * @throws TransactionNotOpenException
+     */
+    public void refreshGame(Games game) throws SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException, TransactionNotOpenException {
+        userTransaction.begin();
+        if(entityManager.isOpen()){
+            entityManager.joinTransaction();
+            entityManager.refresh(game);
+            entityManager.flush();
+            userTransaction.commit();
+        }
+        else
+            throw new TransactionNotOpenException();
+    }
 }

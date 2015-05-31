@@ -52,8 +52,11 @@ public class OrdersHasGames {
 
         OrdersHasGames that = (OrdersHasGames) o;
 
-        return ordersIdorders == that.ordersIdorders && gamesIdgames == that.gamesIdgames && !(quantity != null ? !quantity.equals(that.quantity) : that.quantity != null);
+        if (ordersIdorders != that.ordersIdorders) return false;
+        if (gamesIdgames != that.gamesIdgames) return false;
+        if (quantity != null ? !quantity.equals(that.quantity) : that.quantity != null) return false;
 
+        return true;
     }
 
     @Override
@@ -65,7 +68,7 @@ public class OrdersHasGames {
     }
 
     @ManyToOne
-    @JoinColumn(name = "games_idgames", referencedColumnName = "idgames", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "games_idgames", referencedColumnName = "idgames", nullable = false, updatable = false, insertable = false)
     public Games getGamesByGamesIdgames() {
         return gamesByGamesIdgames;
     }
@@ -75,7 +78,7 @@ public class OrdersHasGames {
     }
 
     @ManyToOne
-    @JoinColumn(name = "orders_idorders", referencedColumnName = "idorders", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "orders_idorders", referencedColumnName = "idorders", nullable = false, updatable = false, insertable = false)
     public Orders getOrdersByOrdersIdorders() {
         return ordersByOrdersIdorders;
     }

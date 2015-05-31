@@ -38,8 +38,10 @@ public class TransactionsHasGamesPK implements Serializable {
 
         TransactionsHasGamesPK that = (TransactionsHasGamesPK) o;
 
-        return transactionsIdtransactions == that.transactionsIdtransactions && gamesIdgames == that.gamesIdgames;
+        if (transactionsIdtransactions != that.transactionsIdtransactions) return false;
+        if (gamesIdgames != that.gamesIdgames) return false;
 
+        return true;
     }
 
     @Override

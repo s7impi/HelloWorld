@@ -1,7 +1,6 @@
 package model.entity;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.sql.Date;
 import java.util.Collection;
 
@@ -13,8 +12,8 @@ public class Games {
     private int idgames;
     private String shortDescription;
     private String longDescription;
-    private BigInteger price;
-    private BigInteger promotionPrice;
+    private float price;
+    private float promotionPrice;
     private Date promotionDeadline;
     private String name;
     private String categoriesName;
@@ -32,6 +31,7 @@ public class Games {
     private Collection<TransactionsHasGames> transactionsHasGamesByIdgames;
 
     @Id
+    @GeneratedValue
     @Column(name = "idgames", nullable = false, insertable = true, updatable = true)
     public int getIdgames() {
         return idgames;
@@ -62,22 +62,22 @@ public class Games {
     }
 
     @Basic
-    @Column(name = "price", nullable = false, insertable = true, updatable = true, scale = 2)
-    public BigInteger getPrice() {
+    @Column(name = "price", nullable = false, insertable = true, updatable = true, precision = 0)
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(BigInteger price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
     @Basic
-    @Column(name = "promotion_price", nullable = false, insertable = true, updatable = true, scale = 2)
-    public BigInteger getPromotionPrice() {
+    @Column(name = "promotion_price", nullable = false, insertable = true, updatable = true, precision = 0)
+    public float getPromotionPrice() {
         return promotionPrice;
     }
 
-    public void setPromotionPrice(BigInteger promotionPrice) {
+    public void setPromotionPrice(float promotionPrice) {
         this.promotionPrice = promotionPrice;
     }
 
@@ -188,8 +188,29 @@ public class Games {
 
         Games games = (Games) o;
 
-        return idgames == games.idgames && !(shortDescription != null ? !shortDescription.equals(games.shortDescription) : games.shortDescription != null) && !(longDescription != null ? !longDescription.equals(games.longDescription) : games.longDescription != null) && !(price != null ? !price.equals(games.price) : games.price != null) && !(promotionPrice != null ? !promotionPrice.equals(games.promotionPrice) : games.promotionPrice != null) && !(promotionDeadline != null ? !promotionDeadline.equals(games.promotionDeadline) : games.promotionDeadline != null) && !(name != null ? !name.equals(games.name) : games.name != null) && !(categoriesName != null ? !categoriesName.equals(games.categoriesName) : games.categoriesName != null) && !(snippet != null ? !snippet.equals(games.snippet) : games.snippet != null) && !(designer != null ? !designer.equals(games.designer) : games.designer != null) && !(numberOfPlayers != null ? !numberOfPlayers.equals(games.numberOfPlayers) : games.numberOfPlayers != null) && !(playingTime != null ? !playingTime.equals(games.playingTime) : games.playingTime != null) && !(subdomain != null ? !subdomain.equals(games.subdomain) : games.subdomain != null) && !(suggestedAge != null ? !suggestedAge.equals(games.suggestedAge) : games.suggestedAge != null) && !(yearPublished != null ? !yearPublished.equals(games.yearPublished) : games.yearPublished != null);
+        if (idgames != games.idgames) return false;
+        if (Float.compare(games.price, price) != 0) return false;
+        if (Float.compare(games.promotionPrice, promotionPrice) != 0) return false;
+        if (shortDescription != null ? !shortDescription.equals(games.shortDescription) : games.shortDescription != null)
+            return false;
+        if (longDescription != null ? !longDescription.equals(games.longDescription) : games.longDescription != null)
+            return false;
+        if (promotionDeadline != null ? !promotionDeadline.equals(games.promotionDeadline) : games.promotionDeadline != null)
+            return false;
+        if (name != null ? !name.equals(games.name) : games.name != null) return false;
+        if (categoriesName != null ? !categoriesName.equals(games.categoriesName) : games.categoriesName != null)
+            return false;
+        if (snippet != null ? !snippet.equals(games.snippet) : games.snippet != null) return false;
+        if (designer != null ? !designer.equals(games.designer) : games.designer != null) return false;
+        if (numberOfPlayers != null ? !numberOfPlayers.equals(games.numberOfPlayers) : games.numberOfPlayers != null)
+            return false;
+        if (playingTime != null ? !playingTime.equals(games.playingTime) : games.playingTime != null) return false;
+        if (subdomain != null ? !subdomain.equals(games.subdomain) : games.subdomain != null) return false;
+        if (suggestedAge != null ? !suggestedAge.equals(games.suggestedAge) : games.suggestedAge != null) return false;
+        if (yearPublished != null ? !yearPublished.equals(games.yearPublished) : games.yearPublished != null)
+            return false;
 
+        return true;
     }
 
     @Override
@@ -197,8 +218,8 @@ public class Games {
         int result = idgames;
         result = 31 * result + (shortDescription != null ? shortDescription.hashCode() : 0);
         result = 31 * result + (longDescription != null ? longDescription.hashCode() : 0);
-        result = 31 * result + (price != null ? price.hashCode() : 0);
-        result = 31 * result + (promotionPrice != null ? promotionPrice.hashCode() : 0);
+        result = 31 * result + (price != +0.0f ? Float.floatToIntBits(price) : 0);
+        result = 31 * result + (promotionPrice != +0.0f ? Float.floatToIntBits(promotionPrice) : 0);
         result = 31 * result + (promotionDeadline != null ? promotionDeadline.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (categoriesName != null ? categoriesName.hashCode() : 0);
@@ -210,6 +231,11 @@ public class Games {
         result = 31 * result + (suggestedAge != null ? suggestedAge.hashCode() : 0);
         result = 31 * result + (yearPublished != null ? yearPublished.hashCode() : 0);
         return result;
+    }
+
+    public Games() {
+        price = 0;
+        promotionPrice = 0;
     }
 
     @OneToMany(mappedBy = "gamesByGamesIdgames")

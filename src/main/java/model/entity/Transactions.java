@@ -1,7 +1,6 @@
 package model.entity;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.sql.Date;
 import java.util.Collection;
 
@@ -12,7 +11,7 @@ import java.util.Collection;
 public class Transactions {
     private int idtransactions;
     private String status;
-    private BigInteger price;
+    private float price;
     private Date date;
     private Collection<TransactionsHasGames> transactionsHasGamesByIdtransactions;
     private Collection<UsersHasTransactions> usersHasTransactionsesByIdtransactions;
@@ -39,11 +38,11 @@ public class Transactions {
 
     @Basic
     @Column(name = "price", nullable = false, insertable = true, updatable = true, precision = 0)
-    public BigInteger getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(BigInteger price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
@@ -64,15 +63,19 @@ public class Transactions {
 
         Transactions that = (Transactions) o;
 
-        return idtransactions == that.idtransactions && !(status != null ? !status.equals(that.status) : that.status != null) && !(price != null ? !price.equals(that.price) : that.price != null) && !(date != null ? !date.equals(that.date) : that.date != null);
+        if (idtransactions != that.idtransactions) return false;
+        if (Float.compare(that.price, price) != 0) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (date != null ? !date.equals(that.date) : that.date != null) return false;
 
+        return true;
     }
 
     @Override
     public int hashCode() {
         int result = idtransactions;
         result = 31 * result + (status != null ? status.hashCode() : 0);
-        result = 31 * result + (price != null ? price.hashCode() : 0);
+        result = 31 * result + (price != +0.0f ? Float.floatToIntBits(price) : 0);
         result = 31 * result + (date != null ? date.hashCode() : 0);
         return result;
     }

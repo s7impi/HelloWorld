@@ -1,7 +1,6 @@
 package model.entity;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.sql.Date;
 import java.util.Collection;
 
@@ -12,7 +11,7 @@ import java.util.Collection;
 public class Orders {
     private int idorders;
     private Date date;
-    private BigInteger price;
+    private float price;
     private String status;
     private String usersEmail;
     private Users usersByUsersEmail;
@@ -40,11 +39,11 @@ public class Orders {
 
     @Basic
     @Column(name = "price", nullable = false, insertable = true, updatable = true, precision = 0)
-    public BigInteger getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(BigInteger price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
@@ -75,22 +74,27 @@ public class Orders {
 
         Orders orders = (Orders) o;
 
-        return idorders == orders.idorders && !(date != null ? !date.equals(orders.date) : orders.date != null) && !(price != null ? !price.equals(orders.price) : orders.price != null) && !(status != null ? !status.equals(orders.status) : orders.status != null) && !(usersEmail != null ? !usersEmail.equals(orders.usersEmail) : orders.usersEmail != null);
+        if (idorders != orders.idorders) return false;
+        if (Float.compare(orders.price, price) != 0) return false;
+        if (date != null ? !date.equals(orders.date) : orders.date != null) return false;
+        if (status != null ? !status.equals(orders.status) : orders.status != null) return false;
+        if (usersEmail != null ? !usersEmail.equals(orders.usersEmail) : orders.usersEmail != null) return false;
 
+        return true;
     }
 
     @Override
     public int hashCode() {
         int result = idorders;
         result = 31 * result + (date != null ? date.hashCode() : 0);
-        result = 31 * result + (price != null ? price.hashCode() : 0);
+        result = 31 * result + (price != +0.0f ? Float.floatToIntBits(price) : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (usersEmail != null ? usersEmail.hashCode() : 0);
         return result;
     }
 
     @ManyToOne
-    @JoinColumn(name = "users_email", referencedColumnName = "email", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "users_email", referencedColumnName = "email", nullable = false, updatable = false, insertable = false)
     public Users getUsersByUsersEmail() {
         return usersByUsersEmail;
     }

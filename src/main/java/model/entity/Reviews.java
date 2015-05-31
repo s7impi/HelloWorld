@@ -72,8 +72,13 @@ public class Reviews {
 
         Reviews reviews = (Reviews) o;
 
-        return idreviews == reviews.idreviews && mark == reviews.mark && gamesIdgames == reviews.gamesIdgames && !(contents != null ? !contents.equals(reviews.contents) : reviews.contents != null) && !(usersEmail != null ? !usersEmail.equals(reviews.usersEmail) : reviews.usersEmail != null);
+        if (idreviews != reviews.idreviews) return false;
+        if (mark != reviews.mark) return false;
+        if (gamesIdgames != reviews.gamesIdgames) return false;
+        if (contents != null ? !contents.equals(reviews.contents) : reviews.contents != null) return false;
+        if (usersEmail != null ? !usersEmail.equals(reviews.usersEmail) : reviews.usersEmail != null) return false;
 
+        return true;
     }
 
     @Override

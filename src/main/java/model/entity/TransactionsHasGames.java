@@ -52,8 +52,11 @@ public class TransactionsHasGames {
 
         TransactionsHasGames that = (TransactionsHasGames) o;
 
-        return transactionsIdtransactions == that.transactionsIdtransactions && gamesIdgames == that.gamesIdgames && quantity == that.quantity;
+        if (transactionsIdtransactions != that.transactionsIdtransactions) return false;
+        if (gamesIdgames != that.gamesIdgames) return false;
+        if (quantity != that.quantity) return false;
 
+        return true;
     }
 
     @Override

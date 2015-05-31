@@ -38,8 +38,11 @@ public class CartsHasGamesPK implements Serializable {
 
         CartsHasGamesPK that = (CartsHasGamesPK) o;
 
-        return gamesIdgames == that.gamesIdgames && !(cartsUsersEmail != null ? !cartsUsersEmail.equals(that.cartsUsersEmail) : that.cartsUsersEmail != null);
+        if (gamesIdgames != that.gamesIdgames) return false;
+        if (cartsUsersEmail != null ? !cartsUsersEmail.equals(that.cartsUsersEmail) : that.cartsUsersEmail != null)
+            return false;
 
+        return true;
     }
 
     @Override

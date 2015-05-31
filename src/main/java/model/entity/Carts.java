@@ -29,8 +29,9 @@ public class Carts {
 
         Carts carts = (Carts) o;
 
-        return !(usersEmail != null ? !usersEmail.equals(carts.usersEmail) : carts.usersEmail != null);
+        if (usersEmail != null ? !usersEmail.equals(carts.usersEmail) : carts.usersEmail != null) return false;
 
+        return true;
     }
 
     @Override

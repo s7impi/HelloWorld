@@ -38,8 +38,10 @@ public class UsersHasTransactionsPK implements Serializable {
 
         UsersHasTransactionsPK that = (UsersHasTransactionsPK) o;
 
-        return transactionsIdtransactions == that.transactionsIdtransactions && !(usersEmail != null ? !usersEmail.equals(that.usersEmail) : that.usersEmail != null);
+        if (transactionsIdtransactions != that.transactionsIdtransactions) return false;
+        if (usersEmail != null ? !usersEmail.equals(that.usersEmail) : that.usersEmail != null) return false;
 
+        return true;
     }
 
     @Override

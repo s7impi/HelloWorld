@@ -52,8 +52,12 @@ public class CartsHasGames {
 
         CartsHasGames that = (CartsHasGames) o;
 
-        return gamesIdgames == that.gamesIdgames && quantity == that.quantity && !(cartsUsersEmail != null ? !cartsUsersEmail.equals(that.cartsUsersEmail) : that.cartsUsersEmail != null);
+        if (gamesIdgames != that.gamesIdgames) return false;
+        if (quantity != that.quantity) return false;
+        if (cartsUsersEmail != null ? !cartsUsersEmail.equals(that.cartsUsersEmail) : that.cartsUsersEmail != null)
+            return false;
 
+        return true;
     }
 
     @Override

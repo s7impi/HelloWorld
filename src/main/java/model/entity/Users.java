@@ -42,8 +42,10 @@ public class Users {
 
         Users users = (Users) o;
 
-        return !(email != null ? !email.equals(users.email) : users.email != null) && !(password != null ? !password.equals(users.password) : users.password != null);
+        if (email != null ? !email.equals(users.email) : users.email != null) return false;
+        if (password != null ? !password.equals(users.password) : users.password != null) return false;
 
+        return true;
     }
 
     @Override
