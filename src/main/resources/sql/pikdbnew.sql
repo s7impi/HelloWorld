@@ -32,8 +32,8 @@ CREATE TABLE IF NOT EXISTS `pikdb`.`games` (
   `idgames` INT NOT NULL AUTO_INCREMENT,
   `short_description` VARCHAR(255) NOT NULL,
   `long_description` VARCHAR(2048) NULL,
-  `price` DECIMAL(2) NOT NULL,
-  `promotion_price` DECIMAL(2) NOT NULL,
+  `price`           FLOAT NOT NULL,
+  `promotion_price` FLOAT NOT NULL,
   `promotion_deadline` DATE NULL,
   `name` VARCHAR(45) NOT NULL,
   `categories_name` VARCHAR(45) NOT NULL,
@@ -71,7 +71,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `pikdb`.`orders` (
   `idorders` INT NOT NULL,
   `date` DATE NOT NULL,
-  `price` DECIMAL(2) NOT NULL,
+  `price` FLOAT NOT NULL,
   `status` VARCHAR(45) NOT NULL,
   `users_email` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idorders`),
@@ -107,7 +107,7 @@ CREATE INDEX `fk_carts_users_idx` ON `pikdb`.`carts` (`users_email` ASC);
 CREATE TABLE IF NOT EXISTS `pikdb`.`transactions` (
   `idtransactions` INT NOT NULL,
   `status` VARCHAR(45) NOT NULL,
-  `price` DECIMAL(2) NOT NULL,
+  `price` FLOAT NOT NULL,
   `date` DATE NOT NULL,
   PRIMARY KEY (`idtransactions`))
 ENGINE = InnoDB;
