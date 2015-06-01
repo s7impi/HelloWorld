@@ -14,9 +14,11 @@ import javax.transaction.UserTransaction;
  */
 public abstract class EntityManagerComposer {
 
-    public EntityManager entityManager;
-    public UserTransaction userTransaction;
 
+    protected EntityManager entityManager;
+    protected UserTransaction userTransaction;
+
+    public EntityManagerComposer()
     {
         InitialContext ctx;
         try {
@@ -27,6 +29,11 @@ public abstract class EntityManagerComposer {
         }
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceUnit");
         entityManager = emf.createEntityManager();
+    }
+
+    public EntityManagerComposer(EntityManager em, UserTransaction ut) {
+        entityManager = em;
+        userTransaction = ut;
     }
 }
 

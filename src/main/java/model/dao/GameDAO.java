@@ -2,6 +2,7 @@ package model.dao;
 
 import model.entity.Games;
 
+import javax.persistence.EntityManager;
 import javax.transaction.*;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * Created by Marz on 2015-05-29.
  */
 public class GameDAO extends EntityManagerComposer {
+
 
 
     /**
@@ -76,5 +78,14 @@ public class GameDAO extends EntityManagerComposer {
         }
         else
             throw new TransactionNotOpenException();
+    }
+
+
+    public GameDAO(EntityManager em, UserTransaction ut) {
+        super(em, ut);
+    }
+
+    public GameDAO() {
+        super();
     }
 }

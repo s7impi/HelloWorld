@@ -3,6 +3,7 @@ package model.dao;
 import model.entity.Users;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
 import javax.transaction.*;
 
 
@@ -12,6 +13,7 @@ import javax.transaction.*;
  */
 @Stateless
 public class UserDao extends EntityManagerComposer{
+
 
 
     /**
@@ -33,15 +35,20 @@ public class UserDao extends EntityManagerComposer{
      * @throws HeuristicMixedException
      * @throws RollbackException
      */
-    public void save(Users user) throws SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+    public void save(Users user) throws SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException, TransactionNotOpenException {
         userTransaction.begin();
         if(entityManager.isOpen()){
             entityManager.joinTransaction();
             entityManager.persist(user);
             entityManager.flush();
             userTransaction.commit();
-        }
+        } else
+            throw new TransactionNotOpenException();
     }
 
+    public UserDao(EntityManager em, UserTransaction ut) {
+        super(em, ut);
+        entityManager = em;
+    }
 
 }

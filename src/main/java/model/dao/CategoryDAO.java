@@ -3,6 +3,7 @@ package model.dao;
 import model.entity.Categories;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
 import javax.transaction.*;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  */
 @Stateless
 public class CategoryDAO extends EntityManagerComposer{
+
 
 
     /**
@@ -53,5 +55,13 @@ public class CategoryDAO extends EntityManagerComposer{
         }
         else
             throw new TransactionNotOpenException();
+    }
+
+    public CategoryDAO(EntityManager em, UserTransaction ut) {
+        super(em, ut);
+    }
+
+    public CategoryDAO() {
+        super();
     }
 }

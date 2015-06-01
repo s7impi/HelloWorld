@@ -1,5 +1,6 @@
 package services;
 
+import model.dao.TransactionNotOpenException;
 import model.dao.UserDao;
 import model.entity.Users;
 
@@ -30,7 +31,7 @@ public class RegisterService {
         user.setEmail(name);
         try {
             dao.save(user);
-        } catch (SystemException | javax.transaction.NotSupportedException | HeuristicMixedException | RollbackException | HeuristicRollbackException e) {
+        } catch (SystemException | javax.transaction.NotSupportedException | HeuristicMixedException | RollbackException | HeuristicRollbackException | TransactionNotOpenException e) {
             e.printStackTrace();
         }
         return "ok";

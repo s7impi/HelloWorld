@@ -31,20 +31,9 @@ public class HelloService {
         g.setPrice((float) 1234.5);
         g.setCategoriesName("RPG");
 
-
         try {
             dao.insertGame(g);
-        } catch (SystemException e) {
-            e.printStackTrace();
-        } catch (NotSupportedException e) {
-            e.printStackTrace();
-        } catch (HeuristicRollbackException e) {
-            e.printStackTrace();
-        } catch (HeuristicMixedException e) {
-            e.printStackTrace();
-        } catch (RollbackException e) {
-            e.printStackTrace();
-        } catch (TransactionNotOpenException e) {
+        } catch (SystemException | NotSupportedException | TransactionNotOpenException | RollbackException | HeuristicMixedException | HeuristicRollbackException e) {
             e.printStackTrace();
         }
 
