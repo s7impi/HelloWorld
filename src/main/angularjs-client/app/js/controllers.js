@@ -19,7 +19,6 @@ boardgameControllers.controller('SendCommentCtrl', ['$scope',
   function($scope) {
     $scope.sendComment = function(comment, id){
       $scope.comments.push(comment);
-      alert("Add comment: "+comment+" for game "+id);
       $scope.commentText = "";
     };//TODO service
     $scope.comments = [];
