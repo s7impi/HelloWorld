@@ -6,7 +6,7 @@
     <persistence-unit name="persistenceUnit">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- production:-->
-        <jta-data-source>jdbc/MySQLDataSource</jta-data-source>
+        <jta-data-source>jdbc/mysql</jta-data-source>
         <class>model.entity.Carts</class>
         <class>model.entity.CartsHasGames</class>
         <class>model.entity.Categories</class>
