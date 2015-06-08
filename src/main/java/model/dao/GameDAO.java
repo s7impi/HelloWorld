@@ -15,7 +15,7 @@ public class GameDAO extends EntityManagerComposer {
 
 
     /**
-     * funkcja szukaj¹ca gry po jej nazwie, ktora jest kluczem glownym
+     * funkcja szukajaca gry po jej nazwie, ktora jest kluczem glownym
      * @param id - nazwa gry
      * @return klasa Game
      */
