@@ -20,7 +20,7 @@ USE `pikdb` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pikdb`.`categories` (
   `name` VARCHAR(45) NOT NULL,
-  `description` VARCHAR(45) NULL,
+  `description` VARCHAR(2048) NULL,
   PRIMARY KEY (`name`))
 ENGINE = InnoDB;
 
@@ -29,22 +29,28 @@ ENGINE = InnoDB;
 -- Table `pikdb`.`games`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pikdb`.`games` (
-  `idgames` INT NOT NULL,
+  `idgames` INT NOT NULL AUTO_INCREMENT,
   `short_description` VARCHAR(255) NOT NULL,
   `long_description` VARCHAR(2048) NULL,
-  `price` DECIMAL(2) NOT NULL,
-  `promotion_price` DECIMAL(2) NULL,
-  `promotion_deadline` DATETIME NULL,
-  `status` VARCHAR(45) NOT NULL,
+  `price`           FLOAT NOT NULL,
+  `promotion_price` FLOAT NOT NULL,
+  `promotion_deadline` DATE NULL,
   `name` VARCHAR(45) NOT NULL,
   `categories_name` VARCHAR(45) NOT NULL,
+  `snippet` VARCHAR(45) NULL,
+  `designer` VARCHAR(45) NULL,
+  `number_of_players` VARCHAR(45) NULL,
+  `playing_time` VARCHAR(45) NULL,
+  `subdomain` VARCHAR(45) NULL,
+  `suggested_age` VARCHAR(45) NULL,
+  `year_published`     DATE NULL,
   PRIMARY KEY (`idgames`),
   CONSTRAINT `fk_games_categories1`
-    FOREIGN KEY (`categories_name`)
-    REFERENCES `pikdb`.`categories` (`name`)
+  FOREIGN KEY (`categories_name`)
+  REFERENCES `pikdb`.`categories` (`name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  ENGINE = InnoDB;
 
 CREATE INDEX `fk_games_categories1_idx` ON `pikdb`.`games` (`categories_name` ASC);
 
@@ -55,7 +61,6 @@ CREATE INDEX `fk_games_categories1_idx` ON `pikdb`.`games` (`categories_name` AS
 CREATE TABLE IF NOT EXISTS `pikdb`.`users` (
   `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `user_image` BLOB(6192) NULL,
   PRIMARY KEY (`email`))
 ENGINE = InnoDB;
 
@@ -65,8 +70,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pikdb`.`orders` (
   `idorders` INT NOT NULL,
-  `date` DATETIME NOT NULL,
-  `price` DECIMAL(2) NOT NULL,
+  `date` DATE NOT NULL,
+  `price` FLOAT NOT NULL,
   `status` VARCHAR(45) NOT NULL,
   `users_email` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idorders`),
@@ -102,7 +107,8 @@ CREATE INDEX `fk_carts_users_idx` ON `pikdb`.`carts` (`users_email` ASC);
 CREATE TABLE IF NOT EXISTS `pikdb`.`transactions` (
   `idtransactions` INT NOT NULL,
   `status` VARCHAR(45) NOT NULL,
-  `price` DECIMAL(2) NOT NULL,
+  `price` FLOAT NOT NULL,
+  `date` DATE NOT NULL,
   PRIMARY KEY (`idtransactions`))
 ENGINE = InnoDB;
 
@@ -236,3 +242,12 @@ CREATE INDEX `fk_transactions_has_games_transactions1_idx` ON `pikdb`.`transacti
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- Insert User example:
+insert into users VALUES ('Olek', '3fb14d016ebe86');
+insert into users VALUES ('admin', 'admin');
+insert into users VALUES ('ccc', 'bbb');
+
+-- categories
+insert into categories VALUE  ('RPG', 'Bardzo krotki opis');
+insert into categories VALUE  ('ekonomiczne', 'gra w ktorej liczy sie pieniadze');
