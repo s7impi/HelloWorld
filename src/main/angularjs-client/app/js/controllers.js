@@ -18,8 +18,11 @@ boardgameControllers.controller('BoardgameDetailCtrl', ['$scope', '$routeParams'
 boardgameControllers.controller('SendCommentCtrl', ['$scope', 
   function($scope) {
     $scope.sendComment = function(comment, id){
-      alert("Add comment: "+comment+" for game "+id);
+      $scope.comments.push(comment);
+      $scope.commentText = "";
     };//TODO service
+    $scope.comments = [];
+    $scope.commentText = "";
   }]);
 
 
