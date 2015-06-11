@@ -1,0 +1,13 @@
+{
+	"designer" : "Nuno Bizarro Sentieiro",
+	"publisher" : "What's Your Game?",
+	"year_published" : "2013",
+	"number_of_players" : "2-4",
+	"description": "Madeira is an island officially discovered early in the 15th century by Portuguese seafarers. Madeira, the Portuguese word for wood, refers to the dense forest that covered its wild, fertile landscape. This, and its strategic position far into the Atlantic Ocean made the island one of the most significant Portuguese discoveries. Madeira served as a laboratory for what would become the Portuguese Empire. Wheat plantations were the first means for survival on the island. After that, when D. Henrique decided to increase the economy of the Empire, sugar became the core business of Madeira. Once sugar started coming from other places in the world, such as Africa and Brazil, profits from sugar were no longer enough, and production of the very famous Madeira wine became the most important economic product of the island. Players try to adapt themselves to these constraints, working to find better fields for farming the right goods and for obtaining precious wood, essential for erecting new structures in the cities and for building ships. In turn, the ships are crucial for trading in foreign markets, as well as for taking part in new expeditions to discover other countries. Madeira has been established just as it was in the original administrative division of the island under 3 captaincies (Funchal, Machico, and Porto Santo), where the ultimate goal is to develop the Island, gaining the most prestige under and for the Portuguese Crown.", 
+	"id": "madeira", 
+	"name": "Madeira",
+	"playing_time" : "120 minutes",
+	"category" : "Civilization",
+	"subdomain" : "Strategy game",
+	"suggested_age" : "14 and up"
+}

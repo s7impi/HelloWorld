@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <ul class="boardgames">
+      <li ng-repeat="game in boardgames | filter:query"
+          class="thumbnail boardgames-list">
+        <a href="#/boardgames/{{game.id}}">{{game.name}}</a>
+        <p>{{game.snippet}}</p>
+        <div  ng-controller="SendCommentCtrl">
+        <div class="btn-group">
+          <button type="button" class="btn btn-danger">Add to cart</button>
+          <button type="button" class="btn btn-success" ng-init="showCommentArea = false" ng-click="showCommentArea=!showCommentArea">Comment</button>
+          <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-star"></span>Rate<span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a >5 stars</a></li>
+              <li><a >4 stars</a></li>
+              <li><a >3 stars</a></li>
+              <li><a >2 stars</a></li>
+              <li><a >1 star</a></li>
+            </ul>
+          </div>
+          <ul>
+            <label ng-show="comments.length > 0">Comments:</label>
+            <li ng-repeat = "comment in comments">{{comment}}</li>
+          </ul>
+        </div>
+        <div class="form-group sample-show-hide" ng-show="showCommentArea" >
+          <label>Your comment:</label>
+          <textarea class="form-control" rows="3" ng-model="commentText"></textarea>
+          <span><button type="button" class="btn btn-warning" ng-click="sendComment(commentText, game.id); showCommentArea=!showCommentArea">Send comment</button></span>
+        </div>
+        </div>
+        </li>
+      </ul>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 package model.bean;
 
-import model.entity.User;
+import model.entity.Users;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateful;
@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 @Stateful
 @StatefulTimeout(unit = TimeUnit.MINUTES, value = 10)
 public class UserBean implements Serializable {
-    private User user;
+    private Users user;
 
     public int validate(String name, String password) {
         if (name.equals("asd") && password.equals("qwe"))

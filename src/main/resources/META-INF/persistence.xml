@@ -1,23 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1">
-    <persistence-unit name="persistenceUnit" transaction-type="JTA">
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="persistenceUnit">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- production:-->
-        <!--<jta-data-source>jdbc/mysql</jta-data-source>-->
+        <jta-data-source>jdbc/mysql</jta-data-source>
+        <class>model.entity.Carts</class>
+        <class>model.entity.CartsHasGames</class>
+        <class>model.entity.Categories</class>
+        <class>model.entity.Games</class>
+        <class>model.entity.Orders</class>
+        <class>model.entity.OrdersHasGames</class>
+        <class>model.entity.Reviews</class>
+        <class>model.entity.Transactions</class>
+        <class>model.entity.TransactionsHasGames</class>
+        <class>model.entity.Users</class>
+        <class>model.entity.UsersHasTransactions</class>
 
-        <class>model.entity.User</class>
-        <class>model.entity.Group</class>
 
         <properties>
-            <property name="javax.persistence.schema-generation.database.action"
-                      value="drop-and-create"/>
+            <!--<property name="hibernate.hbm2ddl.auto" value="create-drop"/>-->
+            <!--<property name="javax.persistence.schema-generation.database.action"-->
+                      <!--value="drop-and-create"/>-->
             <property name="javax.persistence.schema-generation.create-source"
-                      value="metadata"/>
+                      value="metadata/data.sql"/>
             <property name="javax.persistence.sql-load-script-source"
                       value="META-INF/data.sql"/>
-            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.show_sql"
+                      value="true" />
             <property name="hibernate.transaction.jta.platform"
                       value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform" />
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.MySQLInnoDBDialect"/>
+            <property name="hibernate.max_fetch_depth"
+                      value="3"/>
+            <property name="hibernate.connection.datasource"
+                      value="jdbc/mysql"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/pikdb"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="12pik34"/>
+
         </properties>
 
 

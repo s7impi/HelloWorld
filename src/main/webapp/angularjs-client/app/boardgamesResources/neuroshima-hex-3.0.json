@@ -1,0 +1,13 @@
+{
+	"designer" : "Michał Oracz",
+	"publisher" : "Portal Games",
+	"year_published" : "2006",
+	"number_of_players" : "2-4",
+	"description": "Neuroshima Hex! is a strategy game set in the post-apocalyptic world of Neuroshima, a Polish role-playing game. Each player leads one of four armies: Borgo, Hegemonia (Hegemony), Moloch, and Posterunek (Outpost). Each army deck consists of 34 tiles: soldiers, support tiles, and special actions. You win when all enemy headquarters are destroyed or when your headquarters is the least damaged at the end of the game.", 
+	"id": "neuroshima-hex-3.0", 
+	"name": "Neuroshima Hex 3.0",
+	"playing_time" : "30 minutes",
+	"category" : "Science-fiction",
+	"subdomain" : "Strategy game",
+	"suggested_age" : "10 and up"
+}
