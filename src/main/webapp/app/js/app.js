@@ -13,15 +13,15 @@ boardgameApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/boardgames', {
-        templateUrl: 'partials/boardgame-list.html',
+        templateUrl: 'app/partials/boardgame-list.html',
         controller: 'BoardgameListCtrl'
       }).
       when('/boardgames/:boardgameId', {
-        templateUrl: 'partials/boardgame-detail.html',
+        templateUrl: 'app/partials/boardgame-detail.html',
         controller: 'BoardgameDetailCtrl'
       }).
       when('/sell-game', {
-        templateUrl: 'partials/sell-game.html',
+        templateUrl: 'app/partials/sell-game.html',
         controller: 'SellGameCtrl'
       }).
 
