@@ -2,7 +2,7 @@ var boardgameAnimations = angular.module('boardgameAnimations', ['ngAnimate']);
 
 boardgameAnimations.animation('.boardgame', function() {
 
-  var animateUp = function(element, className, done) {alert("UP");
+  var animateUp = function(element, className, done) {
     if(className != 'active') {
       return;
     }
@@ -24,7 +24,7 @@ boardgameAnimations.animation('.boardgame', function() {
     };
   }
 
-  var animateDown = function(element, className, done) {alert("DOWN");
+  var animateDown = function(element, className, done) {
     if(className != 'active') {
       return;
     }

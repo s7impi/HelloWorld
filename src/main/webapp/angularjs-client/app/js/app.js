@@ -20,6 +20,11 @@ boardgameApp.config(['$routeProvider',
         templateUrl: 'partials/boardgame-detail.html',
         controller: 'BoardgameDetailCtrl'
       }).
+      when('/sell-game', {
+        templateUrl: 'partials/sell-game.html',
+        controller: 'SellGameCtrl'
+      }).
+
       otherwise({
         redirectTo: '/boardgames'
       });
