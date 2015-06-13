@@ -25,4 +25,17 @@ boardgameControllers.controller('SendCommentCtrl', ['$scope',
     $scope.commentText = "";
   }]);
 
+boardgameControllers.controller('SellGameCtrl', ['$scope', 
+  function($scope) {
+    $scope.submitted = false;
+    $scope.sell = function(){
+        $scope.submitted = true;
+        //TODO service
+    };
+    $scope.name = "";
+    $scope.description = "";
+    $scope.price = 0;
+    $scope.post = false;
+    $scope.inPerson = false;
+  }]);
 
