@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Stateless
 @Named
-@Path("/games/{gameID}")
+@Path("games/{gameID}")
 public class GamesService {
 
     @GET
