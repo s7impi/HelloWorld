@@ -14,7 +14,8 @@ import javax.transaction.*;
 @Stateless
 public class UserDao extends EntityManagerComposer{
 
-
+    public UserDao() {
+    }
 
     /**
      * Pozwala znalesc uzytkownika po jego emailu/nazwie

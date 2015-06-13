@@ -6,7 +6,7 @@
     <persistence-unit name="persistenceUnit">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- production:-->
-        <jta-data-source>jdbc/MySQLDataSource</jta-data-source>
+        <jta-data-source>jdbc/mysql</jta-data-source>
         <class>model.entity.Carts</class>
         <class>model.entity.CartsHasGames</class>
         <class>model.entity.Categories</class>
@@ -37,11 +37,11 @@
             <property name="hibernate.max_fetch_depth"
                       value="3"/>
             <property name="hibernate.connection.datasource"
-                      value="jdbc/MySQLDataSource"/>
+                      value="jdbc/mysql"/>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/pikdb"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
             <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value="root"/>
+            <property name="hibernate.connection.password" value="12pik34"/>
 
         </properties>
 

@@ -8,6 +8,7 @@ import java.util.Collection;
  * Created by Marz on 2015-05-31.
  */
 @Entity
+@Table(name = "games")
 public class Games {
     private int idgames;
     private String shortDescription;

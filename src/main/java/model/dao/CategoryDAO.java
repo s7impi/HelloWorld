@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * Created by Marz on 2015-05-29.
- * CategoryDAO - klasa odpowiedzialna za dostêp do encji Category
+ * CategoryDAO - klasa odpowiedzialna za dostep do encji Category
  */
 @Stateless
 public class CategoryDAO extends EntityManagerComposer{
@@ -37,7 +37,7 @@ public class CategoryDAO extends EntityManagerComposer{
 
     /**
      * funkcja pozwalajaca dodac nowy wiersz do encji Category
-     * @param newCategory klasa reprezentuj¹ca wiersz encji Category
+     * @param newCategory klasa reprezentujaca wiersz encji Category
      * @throws SystemException
      * @throws NotSupportedException
      * @throws HeuristicRollbackException
