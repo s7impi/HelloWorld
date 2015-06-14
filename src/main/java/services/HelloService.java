@@ -28,7 +28,7 @@ public class HelloService {
         Games g = new Games();
         g.setShortDescription("oto gra");
         g.setName("Pan");
-        g.setPrice((float) 1234.5);
+        g.setPrice((float) 10);
         g.setCategoriesName("RPG");
 
         try {
