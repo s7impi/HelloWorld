@@ -4,6 +4,7 @@ import model.client.Game;
 import model.dao.GameDAO;
 import model.entity.Games;
 
+import javax.annotation.security.PermitAll;
 import javax.ejb.Stateless;
 import javax.inject.Named;
 import javax.ws.rs.GET;
@@ -18,9 +19,8 @@ import java.util.List;
  * @author asmolik
  */
 
-@Stateless
-@Named
-@Path("/games")
+@Path("games")
+@PermitAll
 public class GamesService {
 
     @GET
