@@ -10,7 +10,7 @@ import java.sql.Date;
  */
 @XmlRootElement
 public class Game {
-    private int gameID;
+    private int id;
     private String name;
     private String snippet;
     private String designer;
@@ -31,12 +31,12 @@ public class Game {
 
     }
 
-    public int getgameID() {
-        return gameID;
+    public int getId() {
+        return id;
     }
 
-    public void setgameID(int gameID) {
-        this.gameID = gameID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -43,7 +43,7 @@ public class GameBean {
 
         List<Game> games = new ArrayList<>();
         Game game = new Game();
-        game.setgameID(0);
+        game.setId(0);
         game.setName("Elysium");
         game.setSnippet("Mythic Greece.");
         games.add(game);

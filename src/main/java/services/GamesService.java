@@ -25,7 +25,7 @@ public class GamesService {
     public List<Game> getAllGames(@PathParam("gameID") String gameID) {
         List<Game> games = new ArrayList<>();
         Game game = new Game();
-        game.setgameID(0);
+        game.setId(0);
         game.setName("Elysium");
         game.setSnippet("Mythic Greece. " + gameID);
         games.add(game);
