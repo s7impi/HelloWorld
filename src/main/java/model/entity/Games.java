@@ -7,6 +7,9 @@ import java.util.Collection;
 /**
  * Created by Marz on 2015-05-31.
  */
+
+@NamedQuery(name="model.entity.Games.getAllGames",
+        query="SELECT g FROM Games g ")
 @Entity
 @Table(name = "games")
 public class Games {
