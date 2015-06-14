@@ -20,14 +20,14 @@ import java.util.List;
 
 @Stateless
 @Named
-@Path("games/{gameName}")
+@Path("/games")
 public class GamesService {
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Games> getGame(@PathParam("gameName") String gameName) {
+    public List<Games> getAllGames() {
         GameDAO dao = new GameDAO();
-        List<Games> game = dao.findGameByName(gameName);
-        return game;
+        List<Games> games = dao.findAllGames();
+        return games;
     }
 }
