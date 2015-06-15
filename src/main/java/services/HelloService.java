@@ -22,7 +22,7 @@ public class HelloService {
     private String napis = "";
 
     @GET
-    @Produces("text/plain")
+    @Produces("application/json")
     public String hello(@Context SecurityContext sc) {
         GameDAO dao = new GameDAO();
         Games g = new Games();
@@ -31,11 +31,6 @@ public class HelloService {
         g.setPrice((float) 10);
         g.setCategoriesName("RPG");
 
-        try {
-            dao.insertGame(g);
-        } catch (SystemException | NotSupportedException | TransactionNotOpenException | RollbackException | HeuristicMixedException | HeuristicRollbackException e) {
-            e.printStackTrace();
-        }
 
         List<Games> list = dao.findAllGames();
         for (Games c : list)
