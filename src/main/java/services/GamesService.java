@@ -19,7 +19,7 @@ import java.util.List;
  * @author asmolik
  */
 
-@Path("games/boardgames")
+@Path("games/{gameID}")
 @PermitAll
 public class GamesService {
 
