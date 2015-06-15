@@ -4,7 +4,7 @@
       <li ng-repeat="game in boardgames | filter:query"
           class="thumbnail boardgames-list">
         <a href="#/boardgames/{{game.id}}">{{game.name}}</a>
-        <p>{{game.snippet}}</p>
+        <p>{{game.description}}</p>
         <div  ng-controller="SendCommentCtrl">
         <div class="btn-group">
           <button type="button" class="btn btn-danger">Add to cart</button>
