@@ -15,13 +15,13 @@ public class Game {
     private String snippet;
     private String designer;
     private String publisher;
-    private Date yearPublished;
-    private String numberOfPlayers;
+    private Date year_published;
+    private String number_of_players;
     private String description;
-    private String playingTime;
+    private String playing_time;
     private String category;
     private String subdomain;
-    private String suggestedAge;
+    private String suggested_age;
 
     public Game() {
 
@@ -32,13 +32,13 @@ public class Game {
         name = games.getName();
         snippet = games.getSnippet();
         designer = games.getDesigner();
-        yearPublished = games.getYearPublished();
-        numberOfPlayers = games.getNumberOfPlayers();
+        year_published = games.getYearPublished();
+        number_of_players = games.getNumberOfPlayers();
         description = games.getLongDescription();
-        playingTime = games.getPlayingTime();
+        playing_time = games.getPlayingTime();
         category = games.getCategoriesName();
         subdomain = games.getSubdomain();
-        suggestedAge = games.getSuggestedAge();
+        suggested_age = games.getSuggestedAge();
     }
 
     public int getId() {
@@ -81,20 +81,20 @@ public class Game {
         this.publisher = publisher;
     }
 
-    public Date getYearPublished() {
-        return yearPublished;
+    public Date getYear_published() {
+        return year_published;
     }
 
-    public void setYearPublished(Date yearPublished) {
-        this.yearPublished = yearPublished;
+    public void setYear_published(Date year_published) {
+        this.year_published = year_published;
     }
 
-    public String getNumberOfPlayers() {
-        return numberOfPlayers;
+    public String getNumber_of_players() {
+        return number_of_players;
     }
 
-    public void setNumberOfPlayers(String numberOfPlayers) {
-        this.numberOfPlayers = numberOfPlayers;
+    public void setNumber_of_players(String number_of_players) {
+        this.number_of_players = number_of_players;
     }
 
     public String getDescription() {
@@ -105,12 +105,12 @@ public class Game {
         this.description = description;
     }
 
-    public String getPlayingTime() {
-        return playingTime;
+    public String getPlaying_time() {
+        return playing_time;
     }
 
-    public void setPlayingTime(String playingTime) {
-        this.playingTime = playingTime;
+    public void setPlaying_time(String playing_time) {
+        this.playing_time = playing_time;
     }
 
     public String getCategory() {
@@ -129,11 +129,11 @@ public class Game {
         this.subdomain = subdomain;
     }
 
-    public String getSuggestedAge() {
-        return suggestedAge;
+    public String getSuggested_age() {
+        return suggested_age;
     }
 
-    public void setSuggestedAge(String suggestedAge) {
-        this.suggestedAge = suggestedAge;
+    public void setSuggested_age(String suggested_age) {
+        this.suggested_age = suggested_age;
     }
 }
