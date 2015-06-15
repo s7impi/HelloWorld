@@ -19,30 +19,34 @@ import java.util.List;
  * @author asmolik
  */
 
-@Path("games/{gameID}")
+@Path("games")
 @PermitAll
 public class GamesService {
 
     @GET
+    @Path("/boardgames")
     @Produces("application/json")
     public List<Game> getAllGames(@PathParam("gameID") String gameID) {
         List<Game> games = new ArrayList<>();
         GameDAO dao = new GameDAO();
         List<Games> list;
-        if (gameID.equals("boardgames")) {
-            list = dao.findAllGames();
-            for (Games ggg : list) {
-                games.add(new Game(ggg));
-            }
+        list = dao.findAllGames();
+        for (Games ggg : list) {
+            games.add(new Game(ggg));
         }
-        else {
-            int id = Integer.parseInt(gameID);
-            list = new ArrayList<>();
-            list.add(dao.findGame(id));
-            for (Games ggg : list) {
-                games.add(new Game(ggg));
-            }
-        }
+
         return games;
     }
+
+    @GET
+    @Path("/{gameID}")
+    @Produces("application/json")
+    public Game getGame(@PathParam("gameID") String gameID) {
+        GameDAO dao = new GameDAO();
+        int id = Integer.parseInt(gameID);
+        Game game = new Game(dao.findGame(id));
+
+        return game;
+    }
+
 }
