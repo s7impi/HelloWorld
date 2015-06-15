@@ -28,7 +28,17 @@ public class Game {
     }
 
     public Game(Games games) {
-
+        id = games.getIdgames();
+        name = games.getName();
+        snippet = games.getSnippet();
+        designer = games.getDesigner();
+        yearPublished = games.getYearPublished();
+        numberOfPlayers = games.getNumberOfPlayers();
+        description = games.getLongDescription();
+        playingTime = games.getPlayingTime();
+        category = games.getCategoriesName();
+        subdomain = games.getSubdomain();
+        suggestedAge = games.getSuggestedAge();
     }
 
     public int getId() {

@@ -1,5 +1,6 @@
 package services;
 
+import model.client.Game;
 import model.dao.GameDAO;
 import model.dao.TransactionNotOpenException;
 import model.entity.Games;
@@ -11,6 +12,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.SecurityContext;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +25,7 @@ public class HelloService {
 
     @GET
     @Produces("application/json")
-    public String hello(@Context SecurityContext sc) {
+    public List<Game> hello(@Context SecurityContext sc) {
         GameDAO dao = new GameDAO();
         Games g = new Games();
         g.setShortDescription("oto gra");
@@ -37,6 +39,12 @@ public class HelloService {
         {
             napis = napis + " " + c.getShortDescription();
         }
-        return napis;//g.getCategory().getDescription();
+
+        List<Game> games = new ArrayList<>();
+        for (Games ggg : list) {
+            games.add(new Game(ggg));
+        }
+
+        return games;
     }
 }
