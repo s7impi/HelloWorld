@@ -25,12 +25,23 @@ public class GamesService {
 
     @GET
     @Produces("application/json")
-    public List<Game> getAllGames() {
-        GameDAO dao = new GameDAO();
-        List<Games> list = dao.findAllGames();
+    public List<Game> getAllGames(@PathParam("gameID") String gameID) {
         List<Game> games = new ArrayList<>();
-        for (Games ggg : list) {
-            games.add(new Game(ggg));
+        GameDAO dao = new GameDAO();
+        List<Games> list;
+        if (gameID.equals("boardgames")) {
+            list = dao.findAllGames();
+            for (Games ggg : list) {
+                games.add(new Game(ggg));
+            }
+        }
+        else {
+            int id = Integer.parseInt(gameID);
+            list = new ArrayList<>();
+            list.add(dao.findGame(id));
+            for (Games ggg : list) {
+                games.add(new Game(ggg));
+            }
         }
         return games;
     }
