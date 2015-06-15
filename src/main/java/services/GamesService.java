@@ -19,15 +19,19 @@ import java.util.List;
  * @author asmolik
  */
 
-@Path("games")
+@Path("games/boardgames")
 @PermitAll
 public class GamesService {
 
     @GET
-    @Produces({MediaType.APPLICATION_JSON})
-    public List<Games> getAllGames() {
+    @Produces("application/json")
+    public List<Game> getAllGames() {
         GameDAO dao = new GameDAO();
-        List<Games> games = dao.findAllGames();
+        List<Games> list = dao.findAllGames();
+        List<Game> games = new ArrayList<>();
+        for (Games ggg : list) {
+            games.add(new Game(ggg));
+        }
         return games;
     }
 }
